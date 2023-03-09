@@ -7,8 +7,12 @@ car.carry(1)
     var bus = Bus("Scania","v8", "Blue",60)
    var x= bus.matrixTRipFare(150.0)
     println(x)
+    var y = calc * 3
+    println(y)
 
 }
+
+
 open class Car(var make:String,var model:String, var color:String,var capacity:Int) {
     fun carry(people: Int) {
         var x = (people-capacity)
@@ -29,10 +33,15 @@ open class Car(var make:String,var model:String, var color:String,var capacity:I
     }
 }
 
-class Bus (var make:String,var model:String, var color:String,var capacity:Int) {
+class Bus (make:String, model:String, color:String,capacity:Int):Car(make, model, color, capacity) {
     fun matrixTRipFare(fare: Double): Double {
         var Calculate = capacity * fare
         return Calculate
     }
+
+    override fun calculatesParkingFees(hours: Int): Int {
+        return super.calculatesParkingFees(hours)
+    }
+
 
 }
